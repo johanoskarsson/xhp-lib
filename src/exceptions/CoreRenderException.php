@@ -8,15 +8,12 @@
  *
  */
 
+namespace XHP;
+
 class XHPCoreRenderException extends XHPException {
-  public function __construct(:xhp $that, mixed $rend) {
-    parent::__construct(
-      ':x:element::render must reduce an object to an :x:primitive, but `'.
-      :xhp::class2element(get_class($that)).
-      '` reduced into `'.
-      gettype($rend).
-      "`.\n\n".
-      $that->source,
-    );
-  }
+	public function __construct(:xhp $that, mixed $rend) {
+		parent::__construct(
+			':x:element::render must reduce an object to an :x:primitive, but `'.:xhp::class2element(\get_class($that)).'` reduced into `'.\gettype($rend)."`.\n\n".$that->source,
+		);
+	}
 }

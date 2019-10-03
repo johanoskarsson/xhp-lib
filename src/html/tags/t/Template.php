@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :template extends :xhp:html-element {
+class :template extends :html-element {
   category %flow, %phrase, %metadata;
   // The children declaration for this element is extraordinarily verbose so
   // I leave it to you to use it appropriately.

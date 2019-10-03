@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :fieldset extends :xhp:html-element {
+class :fieldset extends :html-element {
   attribute
     bool disabled,
-    Stringish form,
-    Stringish name;
+    \Stringish form,
+    \Stringish name;
   category %flow;
   children (:legend?, (pcdata | %flow)*);
   protected string $tagName = 'fieldset';

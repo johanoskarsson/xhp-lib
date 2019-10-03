@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :bdi extends :xhp:html-element {
+class :bdi extends :html-element {
   category %flow, %phrase;
   children (pcdata | %phrase)*;
   protected string $tagName = 'bdi';

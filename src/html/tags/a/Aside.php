@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :aside extends :xhp:html-element {
-  category %flow, %sectioning;
-  children (pcdata | %flow)*;
-  protected string $tagName = 'aside';
+class :aside extends :html-element {
+	category %flow, %sectioning;
+	children (pcdata | %flow)*;
+	protected string $tagName = 'aside';
 }

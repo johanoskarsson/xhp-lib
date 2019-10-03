@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :tbody extends :xhp:html-element {
+class :tbody extends :html-element {
   children (:tr)*;
   protected string $tagName = 'tbody';
 }

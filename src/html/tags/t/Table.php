@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :table extends :xhp:html-element {
+class :table extends :html-element {
   attribute
     int border,
     bool sortable;

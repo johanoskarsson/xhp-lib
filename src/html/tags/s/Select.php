@@ -7,14 +7,15 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :select extends :xhp:html-element {
+class :select extends :html-element {
   attribute
     bool autofocus,
     bool disabled,
-    Stringish form,
+    \Stringish form,
     bool multiple,
-    Stringish name,
+    \Stringish name,
     bool required,
     int size;
   category %flow, %phrase, %interactive;

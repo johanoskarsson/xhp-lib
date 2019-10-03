@@ -8,50 +8,43 @@
  *
  */
 
+namespace XHP;
+
 class ReflectionXHPClass {
-  public function __construct(private classname<:x:composable-element> $className) {
-    invariant(
-      class_exists($this->className),
-      'Invalid class name: %s',
-      $this->className,
-    );
-  }
+	public function __construct(private classname<\x\:composable-element> $className) {
+		invariant(\class_exists($this->className), 'Invalid class name: %s', $this->className);
+	}
 
-  public function getReflectionClass(): ReflectionClass {
-    return new ReflectionClass($this->getClassName());
-  }
+	public function getReflectionClass(): \ReflectionClass {
+		return new \ReflectionClass($this->getClassName());
+	}
 
-  public function getClassName(): classname<:x:composable-element> {
-    return $this->className;
-  }
+	public function getClassName(): classname<\x\:composable-element> {
+		return $this->className;
+	}
 
-  public function getElementName(): string {
-    return :xhp::class2element($this->getClassName());
-  }
+	public function getElementName(): string {
+		return :xhp::class2element($this->getClassName());
+	}
 
-  public function getChildren(): ReflectionXHPChildrenDeclaration {
-    $class = $this->getClassName();
-    return $class::__xhpReflectionChildrenDeclaration();
-  }
+	public function getChildren(): ReflectionXHPChildrenDeclaration {
+		$class = $this->getClassName();
+		return $class::__xhpReflectionChildrenDeclaration();
+	}
 
-  public function getAttribute(string $name): ReflectionXHPAttribute {
-    $map = $this->getAttributes();
-    invariant(
-      $map->containsKey($name),
-      'Tried to get attribute %s for XHP element %s, which does not exist',
-      $name,
-      $this->getElementName(),
-    );
-    return $map[$name];
-  }
+	public function getAttribute(string $name): ReflectionXHPAttribute {
+		$map = $this->getAttributes();
+		invariant($map->containsKey($name), 'Tried to get attribute %s for XHP element %s, which does not exist', $name, $this->getElementName());
+		return $map[$name];
+	}
 
-  public function getAttributes(): Map<string, ReflectionXHPAttribute> {
-    $class = $this->getClassName();
-    return $class::__xhpReflectionAttributes();
-  }
+	public function getAttributes(): Map<string, ReflectionXHPAttribute> {
+		$class = $this->getClassName();
+		return $class::__xhpReflectionAttributes();
+	}
 
-  public function getCategories(): Set<string> {
-    $class = $this->getClassName();
-    return $class::__xhpReflectionCategoryDeclaration();
-  }
+	public function getCategories(): Set<string> {
+		$class = $this->getClassName();
+		return $class::__xhpReflectionCategoryDeclaration();
+	}
 }

@@ -7,13 +7,14 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :track extends :xhp:html-singleton {
-  attribute
-    bool default,
-    enum {'subtitles', 'captions', 'descriptions', 'chapters', 'metadata'} kind,
-    Stringish label,
-    Stringish src,
-    Stringish srclang;
-  protected string $tagName = 'track';
+class :track extends :html-singleton {
+	attribute
+		bool default,
+		enum {'subtitles', 'captions', 'descriptions', 'chapters', 'metadata'} kind,
+		\Stringish label,
+		\Stringish src,
+		\Stringish srclang;
+	protected string $tagName = 'track';
 }

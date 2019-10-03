@@ -7,11 +7,12 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :optgroup extends :xhp:html-element {
+class :optgroup extends :html-element {
   attribute
     bool disabled,
-    Stringish label;
+    \Stringish label;
   children (:option)*;
   protected string $tagName = 'optgroup';
 }

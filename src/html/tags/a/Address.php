@@ -7,10 +7,11 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :address extends :xhp:html-element {
-  category %flow;
-  // May not contain %heading, %sectioning, :header, :footer, or :address
-  children (pcdata | %flow)*;
-  protected string $tagName = 'address';
+class :address extends :html-element {
+	category %flow;
+	// May not contain %heading, %sectioning, :header, :footer, or :address
+	children (pcdata | %flow)*;
+	protected string $tagName = 'address';
 }

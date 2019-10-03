@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :output extends :xhp:html-element {
+class :output extends :html-element {
   attribute
-    Stringish for,
-    Stringish form,
-    Stringish name;
+    \Stringish for,
+    \Stringish form,
+    \Stringish name;
   category %flow, %phrase;
   children (pcdata | %phrase)*;
   protected string $tagName = 'output';

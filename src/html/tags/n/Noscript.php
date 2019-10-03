@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :noscript extends :xhp:html-element {
-  children (pcdata | %metadata | %flow)*;
-  category %flow, %phrase, %metadata;
-  protected string $tagName = 'noscript';
+class :noscript extends :html-element {
+	children (pcdata | %metadata | %flow)*;
+	category %flow, %phrase, %metadata;
+	protected string $tagName = 'noscript';
 }

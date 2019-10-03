@@ -8,14 +8,10 @@
  *
  */
 
+namespace XHP;
+
 class XHPClassException extends XHPException {
-  public function __construct(:xhp $that, string $msg) {
-    parent::__construct(
-      'Exception in class `'.
-      XHPException::getElementName($that).
-      "`\n\n".
-      "$that->source\n\n".
-      $msg,
-    );
-  }
+	public function __construct(:xhp $that, string $msg) {
+		parent::__construct('Exception in class `'.XHPException::getElementName($that)."`\n\n"."$that->source\n\n".$msg);
+	}
 }

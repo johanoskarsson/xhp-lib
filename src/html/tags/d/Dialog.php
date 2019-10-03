@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :dialog extends :xhp:html-element {
+class :dialog extends :html-element {
   attribute bool open;
   category %flow, %sectioning;
   children (%flow);

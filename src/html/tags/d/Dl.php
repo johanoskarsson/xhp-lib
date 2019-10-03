@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :dl extends :xhp:html-element {
+class :dl extends :html-element {
   category %flow;
   children (:dt+, :dd+)*;
   protected string $tagName = 'dl';

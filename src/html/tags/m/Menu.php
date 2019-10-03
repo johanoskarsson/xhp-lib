@@ -7,10 +7,11 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :menu extends :xhp:html-element {
+class :menu extends :html-element {
   attribute
-    Stringish label,
+    \Stringish label,
     enum {'popup', 'toolbar'} type;
   category %flow;
   children ((:menuitem | :hr | :menu)* | :li* | %flow*);

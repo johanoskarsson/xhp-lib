@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :header extends :xhp:html-element {
+class :header extends :html-element {
   category %flow, %heading;
   children (pcdata | %flow)*;
   protected string $tagName = 'header';

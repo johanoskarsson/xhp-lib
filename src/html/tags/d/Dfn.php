@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :dfn extends :xhp:html-element {
+class :dfn extends :html-element {
   category %flow, %phrase;
   children (pcdata | %phrase)*;
   protected string $tagName = 'dfn';

@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :col extends :xhp:html-singleton {
+class :col extends :html-singleton {
   attribute int span;
   protected string $tagName = 'col';
 }

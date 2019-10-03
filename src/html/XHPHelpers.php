@@ -7,20 +7,23 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
+
+use type \XHP\{XHPException, XHPClassException, XHPHasTransferAttributes, XHPInvalidAttributeException, ReflectionXHPAttribute};
 
 interface HasXHPHelpers
   extends HasXHPBaseHTMLHelpers, XHPHasTransferAttributes {
 }
-;
+
 
 /*
  * Use of this trait assumes you have inherited attributes from an HTML element.
  * For the bare minimum, use:
  *
- * attribute :xhp:html-element;
+ * attribute \XHP\:html-element;
  */
 trait XHPHelpers implements HasXHPHelpers {
-  require extends :x:composable-element;
+  require extends \x\:composable-element;
 
   use XHPBaseHTMLHelpers;
 
@@ -28,7 +31,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * Copies all attributes that are set on $this and valid on $target to
    * $target.
    */
-  final public function copyAllAttributes(:x:composable-element $target): void {
+  final public function copyAllAttributes(\x\:composable-element $target): void {
     $this->transferAttributesImpl($target, Set {});
   }
 
@@ -37,7 +40,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * $target to $target.
    */
   final public function copyCustomAttributes(
-    :x:composable-element $target,
+    \x\:composable-element $target,
   ): void {
     $this->transferAttributesImpl($target);
   }
@@ -47,7 +50,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * valid on $target to $target.
    */
   final public function copyAttributesExcept(
-    :x:composable-element $target,
+    \x\:composable-element $target,
     Set<string> $ignore,
   ): void {
     $this->transferAttributesImpl($target, $ignore);
@@ -58,7 +61,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * $target. This will unset all transfered attributes from $this.
    */
   final public function transferAllAttributes(
-    :x:composable-element $target,
+    \x\:composable-element $target,
   ): void {
     $this->transferAttributesImpl($target, Set {}, true);
   }
@@ -68,7 +71,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * $target to $target. This will unset all transfered attributes from $this.
    */
   final public function transferCustomAttributes(
-    :x:composable-element $target,
+    \x\:composable-element $target,
   ): void {
     $this->transferAttributesImpl($target, null, true);
   }
@@ -79,7 +82,7 @@ trait XHPHelpers implements HasXHPHelpers {
    * $this.
    */
   final public function transferAttributesExcept(
-    :x:composable-element $target,
+    \x\:composable-element $target,
     Set<string> $ignore,
   ): void {
     $this->transferAttributesImpl($target, $ignore, true);
@@ -90,18 +93,18 @@ trait XHPHelpers implements HasXHPHelpers {
    * directly. Instead, use one of the transfer/copy flavors above.
    */
   final private function transferAttributesImpl(
-    :x:composable-element $target,
+    \x\:composable-element $target,
     ?Set<string> $ignore = null,
     bool $remove = false,
   ): void {
     if ($ignore === null) {
-      $ignore = :xhp:html-element::__xhpAttributeDeclaration();
+      $ignore = \XHP\HTML\:html-element::__xhpAttributeDeclaration();
     } else {
-      $ignore = array_fill_keys($ignore->toArray(), true);
+      $ignore = \array_fill_keys($ignore->toArray(), true);
     }
 
     $compatible = new Map($target::__xhpAttributeDeclaration());
-    $transferAttributes = array_diff_key($this->getAttributes(), $ignore);
+    $transferAttributes = \array_diff_key($this->getAttributes(), $ignore);
     foreach ($transferAttributes as $attribute => $value) {
       if (
         $compatible->containsKey($attribute) ||
@@ -115,11 +118,11 @@ trait XHPHelpers implements HasXHPHelpers {
           // This can be dangerous because the result when validation is off
           // will be different than when validation is on, so you should fix
           // this by renaming one of the attributes.
-          $target = get_class($target);
+          $target = \get_class($target);
           throw new XHPException(
-            :xhp::class2element(static::class).
+            \XHP\:xhp::class2element(static::class).
             ' and '.
-            :xhp::class2element($target).
+            \XHP\:xhp::class2element($target).
             ' both support the "'.
             $attribute.
             '" '.
@@ -143,9 +146,9 @@ trait XHPHelpers implements HasXHPHelpers {
   }
 
   final public function transferAttributesToRenderedRoot(
-    :x:composable-element $root,
+    \x\:composable-element $root,
   ): void {
-    if (:xhp::isAttributeValidationEnabled() && $root is :x:element) {
+    if (\XHP\:xhp::isAttributeValidationEnabled() && $root is \x\:element) {
       if (!($root is HasXHPHelpers)) {
         throw new XHPClassException(
           $this,
@@ -159,12 +162,12 @@ trait XHPHelpers implements HasXHPHelpers {
       if ($rootID !== null && $thisID !== null && $rootID != $thisID) {
         throw new XHPException(
           'ID Collision. '.
-          (:xhp::class2element(self::class)).
+          (\XHP\:xhp::class2element(self::class)).
           ' has an ID '.
           'of "'.
           ($thisID as arraykey).
           '" but it renders into a(n) '.
-          (:xhp::class2element(get_class($root))).
+          (\XHP\:xhp::class2element(\get_class($root))).
           ' which has an ID of "'.
           ($rootID as arraykey).
           '". The latter will get '.
@@ -180,9 +183,9 @@ trait XHPHelpers implements HasXHPHelpers {
     // We want to append classes to the root node, instead of replace them,
     // so do this attribute manually and then remove it.
     foreach ($this->getAttributeNamesThatAppendValuesOnTransfer() as $attr) {
-      if (array_key_exists($attr, $attributes)) {
+      if (\array_key_exists($attr, $attributes)) {
         $rootAttributes = $root->getAttributes();
-        if (array_key_exists($attr, $rootAttributes)) {
+        if (\array_key_exists($attr, $rootAttributes)) {
           $rootValue = (string)$rootAttributes[$attr];
           if ($rootValue !== '') {
             $thisValue = (string)$attributes[$attr];

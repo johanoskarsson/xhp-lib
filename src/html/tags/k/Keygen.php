@@ -7,15 +7,16 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :keygen extends :xhp:html-singleton {
+class :keygen extends :html-singleton {
   attribute
     bool autofocus,
-    Stringish challenge,
+    \Stringish challenge,
     bool disabled,
-    Stringish form,
-    Stringish keytype,
-    Stringish name;
+    \Stringish form,
+    \Stringish keytype,
+    \Stringish name;
   category %flow, %phrase, %interactive;
   protected string $tagName = 'keygen';
 }

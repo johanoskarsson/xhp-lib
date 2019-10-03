@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :caption extends :xhp:html-element {
+class :caption extends :html-element {
   // Should not contain :table
   children (pcdata | %flow)*;
   protected string $tagName = 'caption';

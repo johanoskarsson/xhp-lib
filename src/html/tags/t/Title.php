@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :title extends :xhp:pcdata-element {
-  category %metadata;
-  protected string $tagName = 'title';
+class :title extends :pcdata-element {
+	category %metadata;
+	protected string $tagName = 'title';
 }

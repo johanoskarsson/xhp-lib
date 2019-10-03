@@ -7,15 +7,16 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :th extends :xhp:html-element {
+class :th extends :html-element {
   attribute
-    Stringish abbr,
+    \Stringish abbr,
     int colspan,
-    Stringish headers,
+    \Stringish headers,
     int rowspan,
     enum {'col', 'colgroup', 'row', 'rowgroup'} scope,
-    Stringish sorted;
+    \Stringish sorted;
   children (pcdata | %flow)*;
   protected string $tagName = 'th';
 }

@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :ins extends :xhp:html-element {
-  attribute
-    Stringish cite,
-    Stringish datetime;
-  category %flow, %phrase;
-  children (pcdata | %flow)*;
-  protected string $tagName = 'ins';
+class :ins extends :html-element {
+	attribute
+		\Stringish cite,
+		\Stringish datetime;
+	category %flow, %phrase;
+	children (pcdata | %flow)*;
+	protected string $tagName = 'ins';
 }

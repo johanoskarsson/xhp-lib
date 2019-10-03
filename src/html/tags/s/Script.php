@@ -7,18 +7,19 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :script extends :xhp:raw-pcdata-element {
-  attribute
-    bool async,
-    Stringish charset,
-    enum {'anonymous', 'use-credentials'} crossorigin,
-    bool defer,
-    Stringish src,
-    Stringish type,
-    Stringish integrity,
-    // Legacy
-    Stringish language;
-  category %flow, %phrase, %metadata;
-  protected string $tagName = 'script';
+class :script extends :raw-pcdata-element {
+	attribute
+		bool async,
+		\Stringish charset,
+		enum {'anonymous', 'use-credentials'} crossorigin,
+		bool defer,
+		\Stringish src,
+		\Stringish type,
+		\Stringish integrity,
+		// Legacy
+		\Stringish language;
+	category %flow, %phrase, %metadata;
+	protected string $tagName = 'script';
 }

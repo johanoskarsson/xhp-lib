@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :colgroup extends :xhp:html-element {
+class :colgroup extends :html-element {
   attribute int span;
   children (:col)*;
   protected string $tagName = 'colgroup';

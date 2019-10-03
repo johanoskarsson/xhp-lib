@@ -7,19 +7,20 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :video extends :xhp:html-element {
+class :video extends :html-element {
   attribute
     bool autoplay,
     bool controls,
     enum {'anonymous', 'use-credentials'} crossorigin,
     int height,
     bool loop,
-    Stringish mediagroup,
+    \Stringish mediagroup,
     bool muted,
-    Stringish poster,
+    \Stringish poster,
     enum {'none', 'metadata', 'auto'} preload,
-    Stringish src,
+    \Stringish src,
     int width;
   category %flow, %phrase, %embedded, %interactive;
   children (:source*, :track*, (pcdata | %flow)*);

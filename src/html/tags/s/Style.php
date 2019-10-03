@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :style extends :xhp:raw-pcdata-element {
-  attribute
-    Stringish media,
-    bool scoped,
-    Stringish type;
-  category %flow, %metadata;
-  protected string $tagName = 'style';
+class :style extends :raw-pcdata-element {
+	attribute
+		\Stringish media,
+		bool scoped,
+		\Stringish type;
+	category %flow, %metadata;
+	protected string $tagName = 'style';
 }

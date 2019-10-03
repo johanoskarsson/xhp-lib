@@ -7,11 +7,12 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :base extends :xhp:html-singleton {
+class :base extends :html-singleton {
   attribute
-    Stringish href,
-    Stringish target;
+    \Stringish href,
+    \Stringish target;
   category %metadata;
   protected string $tagName = 'base';
 }

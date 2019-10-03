@@ -8,18 +8,20 @@
  *
  */
 
+namespace x;
+
 /**
  * An <x:frag /> is a transparent wrapper around any number of elements. When
  * you render it just the children will be rendered. When you append it to an
  * element the <x:frag /> will disappear and each child will be sequentially
  * appended to the element.
  */
-class :x:frag extends :x:primitive {
-  protected function stringify(): string {
-    $buf = '';
-    foreach ($this->getChildren() as $child) {
-      $buf .= :xhp::renderChild($child);
-    }
-    return $buf;
-  }
+class :frag extends :primitive {
+	protected function stringify(): string {
+		$buf = '';
+		foreach ($this->getChildren() as $child) {
+			$buf .= \XHP\:xhp::renderChild($child);
+		}
+		return $buf;
+	}
 }

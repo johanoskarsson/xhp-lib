@@ -7,10 +7,11 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :time extends :xhp:html-element {
-  attribute Stringish datetime;
-  category %flow, %phrase;
-  children (pcdata | %phrase)*;
-  protected string $tagName = 'time';
+class :time extends :html-element {
+	attribute \Stringish datetime;
+	category %flow, %phrase;
+	children (pcdata | %phrase)*;
+	protected string $tagName = 'time';
 }

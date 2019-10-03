@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :details extends :xhp:html-element {
+class :details extends :html-element {
   attribute bool open;
   category %flow, %phrase, %interactive;
   children (:summary, %flow+);

@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :tfoot extends :xhp:html-element {
+class :tfoot extends :html-element {
   children (:tr)*;
   protected string $tagName = 'tfoot';
 }

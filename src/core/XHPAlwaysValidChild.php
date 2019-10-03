@@ -8,6 +8,8 @@
  *
  */
 
+namespace XHP;
+
 /**
  * INCREDIBLY DANGEROUS: Marks an object as a valid child of *any* element,
  * ignoring any child rules.

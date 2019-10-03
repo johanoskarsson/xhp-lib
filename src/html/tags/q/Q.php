@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :q extends :xhp:html-element {
-  attribute Stringish cite;
+class :q extends :html-element {
+  attribute \Stringish cite;
   category %flow, %phrase;
   children (pcdata | %phrase)*;
   protected string $tagName = 'q';

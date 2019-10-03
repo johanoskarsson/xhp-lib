@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :nav extends :xhp:html-element {
-  category %flow;
-  children (pcdata | %flow)*;
-  protected string $tagName = 'nav';
+class :nav extends :html-element {
+	category %flow;
+	children (pcdata | %flow)*;
+	protected string $tagName = 'nav';
 }

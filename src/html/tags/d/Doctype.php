@@ -7,16 +7,17 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace x;
 
 /**
  * Render an <html /> element within a DOCTYPE, XHP has chosen to only support
  * the HTML5 doctype.
  */
-class :x:doctype extends :x:primitive {
-  children (:html);
+class :doctype extends :primitive {
+	children (:html);
 
-  protected function stringify(): string {
-    $children = $this->getChildren();
-    return '<!DOCTYPE html>'.(:xhp::renderChild($children[0]));
-  }
+	protected function stringify(): string {
+		$children = $this->getChildren();
+		return '<!DOCTYPE html>'.(\XHP\:xhp::renderChild($children[0]));
+	}
 }

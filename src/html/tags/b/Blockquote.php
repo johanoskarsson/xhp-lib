@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :blockquote extends :xhp:html-element {
-  attribute Stringish cite;
+class :blockquote extends :html-element {
+  attribute \Stringish cite;
   category %flow, %sectioning;
   children (pcdata | %flow)*;
   protected string $tagName = 'blockquote';

@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :samp extends :xhp:html-element {
-  category %flow, %phrase;
-  children (pcdata | %phrase)*;
-  protected string $tagName = 'samp';
+class :samp extends :html-element {
+	category %flow, %phrase;
+	children (pcdata | %phrase)*;
+	protected string $tagName = 'samp';
 }

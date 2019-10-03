@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :td extends :xhp:html-element {
-  attribute
-    int colspan,
-    Stringish headers,
-    int rowspan;
-  children (pcdata | %flow)*;
-  protected string $tagName = 'td';
+class :td extends :html-element {
+	attribute
+		int colspan,
+		\Stringish headers,
+		int rowspan;
+	children (pcdata | %flow)*;
+	protected string $tagName = 'td';
 }

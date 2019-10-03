@@ -7,16 +7,17 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :object extends :xhp:html-element {
+class :object extends :html-element {
   attribute
-    Stringish data,
+    \Stringish data,
     int height,
-    Stringish form,
-    Stringish name,
-    Stringish type,
+    \Stringish form,
+    \Stringish name,
+    \Stringish type,
     bool typemustmatch,
-    Stringish usemap,
+    \Stringish usemap,
     int width;
   category %flow, %phrase, %embedded, %interactive;
   children (:param*, (pcdata | %flow)*);

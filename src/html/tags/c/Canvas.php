@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :canvas extends :xhp:html-element {
+class :canvas extends :html-element {
   attribute
     int height,
     int width;

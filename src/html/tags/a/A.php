@@ -7,18 +7,19 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :a extends :xhp:html-element {
+class :a extends :html-element {
   attribute
-    Stringish download,
-    Stringish href,
-    Stringish hreflang,
-    Stringish media,
-    Stringish rel,
-    Stringish target,
-    Stringish type,
+    \Stringish download,
+    \Stringish href,
+    \Stringish hreflang,
+    \Stringish media,
+    \Stringish rel,
+    \Stringish target,
+    \Stringish type,
     // Legacy
-    Stringish name;
+    \Stringish name;
   category %flow, %phrase, %interactive;
   // Should not contain %interactive
   children (pcdata | %flow)*;

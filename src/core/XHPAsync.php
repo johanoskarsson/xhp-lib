@@ -8,8 +8,13 @@
  *
  */
 
+namespace XHP;
+
+use type \XHP\XHPRoot;
+use type \Exception;
+
 trait XHPAsync implements XHPAwaitable {
-  require extends :x:element;
+  require extends \x\:element;
 
   abstract protected function asyncRender(): Awaitable<XHPRoot>;
 

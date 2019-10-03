@@ -7,21 +7,22 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :button extends :xhp:html-element {
+class :button extends :html-element {
   attribute
     bool autofocus,
     bool disabled,
-    Stringish form,
-    Stringish formaction,
-    Stringish formenctype,
+    \Stringish form,
+    \Stringish formaction,
+    \Stringish formenctype,
     enum {'get', 'post'} formmethod,
     bool formnovalidate,
-    Stringish formtarget,
-    Stringish menu,
-    Stringish name,
+    \Stringish formtarget,
+    \Stringish menu,
+    \Stringish name,
     enum {'submit', 'button', 'reset'} type,
-    Stringish value;
+    \Stringish value;
   category %flow, %phrase, %interactive;
   // Should not contain interactive
   children (pcdata | %phrase)*;

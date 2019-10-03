@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :head extends :xhp:html-element {
+class :head extends :html-element {
   children (%metadata*);
   protected string $tagName = 'head';
 }

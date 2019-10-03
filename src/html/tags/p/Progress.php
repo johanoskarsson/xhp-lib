@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :progress extends :xhp:html-element {
+class :progress extends :html-element {
   attribute
     float max,
     float value;

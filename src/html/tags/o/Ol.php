@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :ol extends :xhp:html-element {
+class :ol extends :html-element {
   attribute
     bool reversed,
     int start,

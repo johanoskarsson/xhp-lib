@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
 interface HasXHPBaseHTMLHelpers {
-  require extends :x:composable-element;
+	require extends \x\:composable-element;
 
-  public function addClass(string $class): this;
-  public function conditionClass(bool $cond, string $class): this;
-  public function requireUniqueID(): string;
-  public function getID(): string;
+	public function addClass(string $class): this;
+	public function conditionClass(bool $cond, string $class): this;
+	public function requireUniqueID(): string;
+	public function getID(): string;
 }

@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :dd extends :xhp:html-element {
+class :dd extends :html-element {
   children (pcdata | %flow)*;
   protected string $tagName = 'dd';
 }

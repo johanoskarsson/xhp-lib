@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :figure extends :xhp:html-element {
+class :figure extends :html-element {
   category %flow, %sectioning;
   children ((:figcaption, %flow+) | (%flow+, :figcaption?));
   protected string $tagName = 'figure';

@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :br extends :xhp:html-singleton {
+class :br extends :html-singleton {
   category %flow, %phrase;
   protected string $tagName = 'br';
 }

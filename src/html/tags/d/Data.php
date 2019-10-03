@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :data extends :xhp:html-element {
-  attribute Stringish value @required;
+class :data extends :html-element {
+  attribute \Stringish value @required;
   category %flow, %phrase;
   children (%phrase*);
   protected string $tagName = 'data';

@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :datalist extends :xhp:html-element {
+class :datalist extends :html-element {
   category %flow, %phrase;
   children (%phrase+ | :option*);
   protected string $tagName = 'datalist';

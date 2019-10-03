@@ -7,11 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :ruby extends :xhp:html-element {
-  category %flow, %phrase;
-  children (
-    (pcdata | :rb)+ | ((:rp, :rt) | (:rp, :rtc) | (:rt, :rp) | (:rtc, :rp))+
-  );
-  protected string $tagName = 'ruby';
+class :ruby extends :html-element {
+	category %flow, %phrase;
+	children ((pcdata | :rb)+ | ((:rp, :rt) | (:rp, :rtc) | (:rt, :rp) | (:rtc, :rp))+);
+	protected string $tagName = 'ruby';
 }

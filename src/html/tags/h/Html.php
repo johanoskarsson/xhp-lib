@@ -7,11 +7,12 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :html extends :xhp:html-element {
+class :html extends :html-element {
   attribute
-    Stringish manifest,
-    Stringish xmlns;
+    \Stringish manifest,
+    \Stringish xmlns;
   children (:head, :body);
   protected string $tagName = 'html';
 }

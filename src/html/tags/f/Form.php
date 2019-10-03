@@ -7,17 +7,18 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :form extends :xhp:html-element {
+class :form extends :html-element {
   attribute
-    Stringish action,
-    Stringish accept-charset,
+    \Stringish action,
+    \Stringish accept-charset,
     enum {'on', 'off'} autocomplete,
-    Stringish enctype,
+    \Stringish enctype,
     enum {'get', 'post'} method,
-    Stringish name,
+    \Stringish name,
     bool novalidate,
-    Stringish target;
+    \Stringish target;
   category %flow;
   // Should not contain :form
   children (pcdata | %flow)*;

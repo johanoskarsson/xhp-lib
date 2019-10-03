@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :section extends :xhp:html-element {
+class :section extends :html-element {
   category %flow, %sectioning;
   children (pcdata | %flow)*;
   protected string $tagName = 'section';

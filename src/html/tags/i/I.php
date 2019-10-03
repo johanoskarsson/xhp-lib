@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :i extends :xhp:html-element {
-  category %flow, %phrase;
-  children (pcdata | %phrase)*;
-  protected string $tagName = 'i';
+class :i extends :html-element {
+	category %flow, %phrase;
+	children (pcdata | %phrase)*;
+	protected string $tagName = 'i';
 }

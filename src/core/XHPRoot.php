@@ -8,6 +8,10 @@
  *
  */
 
+namespace XHP;
+
+use type \XHPChild;
+
 interface XHPRoot extends XHPChild {
-  require extends :x:composable-element;
+  require extends \x\:composable-element;
 }

@@ -7,12 +7,16 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace x;
 
 use type Facebook\TypeAssert\IncorrectTypeException;
+use type \XHPChild;
+use type \XHP\{:xhp, ReflectionXHPAttribute, XHPAttributeType, XHPAttributeCoercion, ReflectionXHPChildrenDeclaration, XHPChildrenDeclarationType, ReflectionXHPChildrenExpression, XHPChildrenExpressionType, XHPAlwaysValidChild, XHPChildrenConstraintType};
+use type \XHP\{XHPAttributeRequiredException, XHPAttributeNotSupportedException, XHPInvalidAttributeException, XHPUnsupportedAttributeTypeException, XHPInvalidChildrenException};
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str};
 
-abstract class :x:composable-element extends :xhp {
+abstract class :composable-element extends :xhp {
   private Map<string, mixed> $attributes = Map {};
   private Vector<XHPChild> $children = Vector {};
   private Map<string, mixed> $context = Map {};
@@ -46,7 +50,7 @@ abstract class :x:composable-element extends :xhp {
     foreach ($attributes as $key => $value) {
       if (self::isSpreadKey($key)) {
         invariant(
-          $value is :x:composable-element,
+          $value is \x\:composable-element,
           "Only XHP can be used with an attribute spread operator",
         );
         $this->spreadElementImpl($value);
@@ -82,7 +86,7 @@ abstract class :x:composable-element extends :xhp {
       foreach ($child as $c) {
         $this->appendChild($c);
       }
-    } else if ($child is :x:frag) {
+    } else if ($child is \x\:frag) {
       $this->children->addAll($child->getChildren());
     } else if ($child !== null) {
       assert($child is XHPChild);
@@ -116,7 +120,7 @@ abstract class :x:composable-element extends :xhp {
     $new_children = Vector {};
     foreach ($children as $xhp) {
       /* HH_FIXME[4273] bogus "XHPChild always truthy" - FB T41388073 */
-    if ($xhp is :x:frag) {
+    if ($xhp is \x\:frag) {
       foreach ($xhp->children as $child) {
         $new_children->add($child);
       }
@@ -124,7 +128,7 @@ abstract class :x:composable-element extends :xhp {
       $new_children->add($xhp);
     } else {
       foreach ($xhp as $element) {
-        if ($element is :x:frag) {
+        if ($element is \x\:frag) {
           foreach ($element->children as $child) {
             $new_children->add($child);
           }
@@ -151,7 +155,7 @@ abstract class :x:composable-element extends :xhp {
     if ($selector is string && $selector !== '') {
       $children = Vector {};
       if ($selector[0] == '%') {
-        $selector = substr($selector, 1);
+        $selector = \substr($selector, 1);
         foreach ($this->children as $child) {
           if ($child is :xhp && $child->categoryOf($selector)) {
             $children->add($child);
@@ -160,7 +164,7 @@ abstract class :x:composable-element extends :xhp {
       } else {
         $selector = :xhp::element2class($selector);
         foreach ($this->children as $child) {
-          if (is_a($child, $selector, /* allow strings = */ true)) {
+          if (\is_a($child, $selector, /* allow strings = */ true)) {
             $children->add($child);
           }
         }
@@ -184,7 +188,7 @@ abstract class :x:composable-element extends :xhp {
     if ($selector === null) {
       return $this->children->get(0);
     } else if ($selector[0] == '%') {
-      $selector = substr($selector, 1);
+      $selector = \substr($selector, 1);
       foreach ($this->children as $child) {
         if ($child is :xhp && $child->categoryOf($selector)) {
           return $child;
@@ -193,7 +197,7 @@ abstract class :x:composable-element extends :xhp {
     } else {
       $selector = :xhp::element2class($selector);
       foreach ($this->children as $child) {
-        if (is_a($child, $selector, /* allow strings = */ true)) {
+        if (\is_a($child, $selector, /* allow strings = */ true)) {
           return $child;
         }
       }
@@ -304,7 +308,7 @@ abstract class :x:composable-element extends :xhp {
    * in the constructor.
    */
   private static function isSpreadKey(string $key): bool {
-    return substr($key, 0, strlen(:xhp::SPREAD_PREFIX)) === :xhp::SPREAD_PREFIX;
+    return \substr($key, 0, \strlen(:xhp::SPREAD_PREFIX)) === :xhp::SPREAD_PREFIX;
   }
 
   /**
@@ -318,7 +322,7 @@ abstract class :x:composable-element extends :xhp {
    * Defaults from $xhp are copied as well, if they are present.
    */
   protected final function spreadElementImpl(
-    :x:composable-element $element,
+    :composable-element $element,
   ): void {
     foreach ($element::__xhpReflectionAttributes() as $attr_name => $attr) {
       $our_attr = static::__xhpReflectionAttribute($attr_name);
@@ -481,7 +485,7 @@ abstract class :x:composable-element extends :xhp {
     }
   }
 
-  abstract protected function __flushSubtree(): Awaitable<:x:primitive>;
+  abstract protected function __flushSubtree(): Awaitable<:primitive>;
 
   /**
    * Defined in elements by the `attribute` keyword. The declaration is simple.
@@ -557,18 +561,18 @@ abstract class :x:composable-element extends :xhp {
         break;
 
       case XHPAttributeType::TYPE_ARRAY:
-        if (!is_array($val)) {
+        if (!\is_array($val)) {
           throw new XHPInvalidAttributeException($this, 'array', $attr, $val);
         }
         break;
 
       case XHPAttributeType::TYPE_OBJECT:
         $class = $decl->getValueClass();
-        if (is_a($val, $class, true)) {
+        if (\is_a($val, $class, true)) {
           break;
         }
         /* HH_FIXME[4026] $class as enumname<_> */
-        if (enum_exists($class) && $class::isValid($val)) {
+        if (\enum_exists($class) && $class::isValid($val)) {
           break;
         }
         // Things that are a valid array key without any coercion
@@ -582,16 +586,16 @@ abstract class :x:composable-element extends :xhp {
             break;
           }
         }
-        if (is_array($val)) {
+        if (\is_array($val)) {
           try {
             $type_structure = (
-              new ReflectionTypeAlias($class)
+              new \ReflectionTypeAlias($class)
             )->getResolvedTypeStructure();
             /* HH_FIXME[4110] $type_structure is an array, but should be a
              * TypeStructure<T> */
             TypeAssert\matches_type_structure($type_structure, $val);
             break;
-          } catch (ReflectionException $_) {
+          } catch (\ReflectionException $_) {
             // handled below
           } catch (IncorrectTypeException $_) {
             // handled below
@@ -605,7 +609,7 @@ abstract class :x:composable-element extends :xhp {
 
       case XHPAttributeType::TYPE_ENUM:
         if (!(($val is string) && $decl->getEnumValues()->contains($val))) {
-          $enums = 'enum("'.implode('","', $decl->getEnumValues()).'")';
+          $enums = 'enum("'.\implode('","', $decl->getEnumValues()).'")';
           throw new XHPInvalidAttributeException($this, $enums, $attr, $val);
         }
         break;
@@ -627,7 +631,7 @@ abstract class :x:composable-element extends :xhp {
    */
   final protected function validateChildren(): void {
     $decl = self::__xhpReflectionChildrenDeclaration();
-    $type = $decl->getType();
+    $type = $decl->gettype();
     if ($type === XHPChildrenDeclarationType::ANY_CHILDREN) {
       return;
     }
@@ -642,7 +646,7 @@ abstract class :x:composable-element extends :xhp {
       $decl->getExpression(),
       0,
     );
-    if (!$ret || $ii < count($this->children)) {
+    if (!$ret || $ii < \count($this->children)) {
       if (($this->children[$ii] ?? null) is XHPAlwaysValidChild) {
         return;
       }
@@ -654,7 +658,7 @@ abstract class :x:composable-element extends :xhp {
     ReflectionXHPChildrenExpression $expr,
     int $index,
   ): (bool, int) {
-    switch ($expr->getType()) {
+    switch ($expr->gettype()) {
       case XHPChildrenExpressionType::SINGLE:
         // Exactly once -- :fb-thing
         return $this->validateChildrenRule($expr, $index);
@@ -745,7 +749,7 @@ abstract class :x:composable-element extends :xhp {
         $class = $expr->getConstraintString();
         if (
           $this->children->containsKey($index) &&
-          is_a($this->children->get($index), $class, true)
+          \is_a($this->children->get($index), $class, true)
         ) {
           return tuple(true, $index + 1);
         }
@@ -796,17 +800,17 @@ abstract class :x:composable-element extends :xhp {
     $desc = array();
     foreach ($this->children as $child) {
       if ($child is :xhp) {
-        $tmp = ':'.:xhp::class2element(get_class($child));
+        $tmp = ':'.:xhp::class2element(\get_class($child));
         $categories = $child->__xhpCategoryDeclaration();
         if (C\count($categories) > 0) {
-          $tmp .= '[%'.implode(',%', array_keys($categories)).']';
+          $tmp .= '[%'.\implode(',%', \array_keys($categories)).']';
         }
         $desc[] = $tmp;
       } else {
         $desc[] = 'pcdata';
       }
     }
-    return implode(',', $desc);
+    return \implode(',', $desc);
   }
 
   final public function categoryOf(string $c): bool {
@@ -815,7 +819,7 @@ abstract class :x:composable-element extends :xhp {
       return true;
     }
     // XHP parses the category string
-    $c = str_replace(array(':', '-'), array('__', '_'), $c);
+    $c = \str_replace(array(':', '-'), array('__', '_'), $c);
     return ($categories[$c] ?? null) !== null;
   }
 }

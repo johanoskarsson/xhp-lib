@@ -8,14 +8,14 @@
  *
  */
 
+namespace XHP;
+
 /**
  * Indicates that any attributes set on an element should be transferred to the
  * element returned from ::render() or ::asyncRender(). This is automatically
  * invoked by :x:element.
  */
 interface XHPHasTransferAttributes {
-  require extends :x:element;
-  public function transferAttributesToRenderedRoot(
-    :x:composable-element $root,
-  ): void;
+	require extends \x\:element;
+	public function transferAttributesToRenderedRoot(\x\:composable-element $root): void;
 }

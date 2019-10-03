@@ -7,17 +7,18 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :meta extends :xhp:html-singleton {
+class :meta extends :html-singleton {
   attribute
     // The correct definition of http-equiv is an enum, but there are legacy
     // values still used and any strictness here would only be frustrating.
-    Stringish charset,
-    Stringish content @required,
-    Stringish http-equiv,
-    Stringish name,
+    \Stringish charset,
+    \Stringish content @required,
+    \Stringish http-equiv,
+    \Stringish name,
     // Facebook OG
-    Stringish property;
+    \Stringish property;
   // If itemprop is present, this element is allowed within the <body>.
   category %metadata, %flow, %phrase;
   protected string $tagName = 'meta';

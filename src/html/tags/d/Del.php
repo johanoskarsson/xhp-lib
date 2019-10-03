@@ -7,11 +7,12 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :del extends :xhp:html-element {
+class :del extends :html-element {
   attribute
-    Stringish cite,
-    Stringish datetime;
+    \Stringish cite,
+    \Stringish datetime;
   category %flow, %phrase;
   // transparent
   children (pcdata | %flow)*;

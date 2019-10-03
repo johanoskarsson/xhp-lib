@@ -7,10 +7,11 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
 /**
- * Subclasses of :xhp:pcdata-elements may contain only Stringish children.
+ * Subclasses of :xhp:pcdata-elements may contain only \Stringish children.
  */
-abstract class :xhp:pcdata-element extends :xhp:html-element {
-  children (pcdata)*;
+abstract class :pcdata-element extends :html-element {
+	children (pcdata)*;
 }

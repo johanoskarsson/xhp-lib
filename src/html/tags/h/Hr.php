@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :hr extends :xhp:html-singleton {
-  category %flow;
-  protected string $tagName = 'hr';
+class :hr extends :html-singleton {
+	category %flow;
+	protected string $tagName = 'hr';
 }

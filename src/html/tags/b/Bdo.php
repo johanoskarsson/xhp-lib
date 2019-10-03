@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :bdo extends :xhp:html-element {
+class :bdo extends :html-element {
   category %flow, %phrase;
   children (pcdata | %phrase)*;
   protected string $tagName = 'bdo';

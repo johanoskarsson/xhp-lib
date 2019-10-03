@@ -7,15 +7,16 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
 /**
  * Subclasses of :xhp:html-singleton may not contain children. When
  * rendered they will be in singleton (<img />, <br />) form.
  */
-abstract class :xhp:html-singleton extends :xhp:html-element {
-  children empty;
+abstract class :html-singleton extends :html-element {
+	children empty;
 
-  protected function stringify(): string {
-    return $this->renderBaseAttrs().'>';
-  }
+	protected function stringify(): string {
+		return $this->renderBaseAttrs().'>';
+	}
 }

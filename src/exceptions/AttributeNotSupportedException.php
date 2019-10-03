@@ -8,21 +8,23 @@
  *
  */
 
+namespace XHP;
+
 class XHPAttributeNotSupportedException extends XHPException {
-  public function __construct(:xhp $that, string $attr) {
-    parent::__construct(
-      'Attribute "'.
-      $attr.
-      '" is not supported in class '.
-      '"'.
-      XHPException::getElementName($that).
-      '"'.
-      "\n\n".
-      $that->source.
-      "\n\n".
-      'Please check for typos in your attribute. If you are creating a new '.
-      'attribute on this element define it with the "attribute" keyword'.
-      "\n\n",
-    );
-  }
+	public function __construct(:xhp $that, string $attr) {
+		parent::__construct(
+			'Attribute "'.
+			$attr.
+			'" is not supported in class '.
+			'"'.
+			XHPException::getElementName($that).
+			'"'.
+			"\n\n".
+			$that->source.
+			"\n\n".
+			'Please check for typos in your attribute. If you are creating a new '.
+			'attribute on this element define it with the "attribute" keyword'.
+			"\n\n",
+		);
+	}
 }

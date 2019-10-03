@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :meter extends :xhp:html-element {
+class :meter extends :html-element {
   attribute
     float high,
     float low,

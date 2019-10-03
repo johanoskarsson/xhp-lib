@@ -8,13 +8,15 @@
  *
  */
 
-class XHPException extends Exception {
-  protected static function getElementName(:xhp $that): string {
-    $name = get_class($that);
-    if (substr($name, 0, 4) !== 'xhp_') {
-      return $name;
-    } else {
-      return :xhp::class2element($name);
-    }
-  }
+namespace XHP;
+
+class XHPException extends \Exception {
+	protected static function getElementName(:xhp $that): string {
+		$name = \get_class($that);
+		if (\substr($name, 0, 4) !== 'xhp_') {
+			return $name;
+		} else {
+			return :xhp::class2element($name);
+		}
+	}
 }

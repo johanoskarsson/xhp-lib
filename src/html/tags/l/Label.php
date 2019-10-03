@@ -7,11 +7,12 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :label extends :xhp:html-element {
+class :label extends :html-element {
   attribute
-    Stringish for,
-    Stringish form;
+    \Stringish for,
+    \Stringish form;
   category %flow, %phrase, %interactive;
   // may not contain label
   children (pcdata | %phrase)*;

@@ -7,21 +7,22 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :body extends :xhp:html-element {
+class :body extends :html-element {
   attribute
-    Stringish onafterprint,
-    Stringish onbeforeprint,
-    Stringish onbeforeunload,
-    Stringish onhashchange,
-    Stringish onmessage,
-    Stringish onoffline,
-    Stringish ononline,
-    Stringish onpagehide,
-    Stringish onpageshow,
-    Stringish onpopstate,
-    Stringish onstorage,
-    Stringish onunload;
+    \Stringish onafterprint,
+    \Stringish onbeforeprint,
+    \Stringish onbeforeunload,
+    \Stringish onhashchange,
+    \Stringish onmessage,
+    \Stringish onoffline,
+    \Stringish ononline,
+    \Stringish onpagehide,
+    \Stringish onpageshow,
+    \Stringish onpopstate,
+    \Stringish onstorage,
+    \Stringish onunload;
   children (pcdata | %flow)*;
   protected string $tagName = 'body';
 }

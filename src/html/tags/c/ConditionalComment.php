@@ -8,21 +8,23 @@
  *
  */
 
+namespace x;
+
 /**
  * Render an HTML conditional comment. You can choose whatever you like as
  * the conditional statement.
  */
-class :x:conditional-comment extends :x:primitive {
-  attribute string if @required;
-  children (pcdata | :xhp)*;
+class :conditional-comment extends :primitive {
+	attribute string if @required;
+	children (pcdata | :xhp)*;
 
-  protected function stringify(): string {
-    $children = $this->getChildren();
-    $html = '<!--[if '.$this->:if.']>';
-    foreach ($children as $child) {
-      $html .= :xhp::renderChild($child);
-    }
-    $html .= '<![endif]-->';
-    return $html;
-  }
+	protected function stringify(): string {
+		$children = $this->getChildren();
+		$html = '<!--[if '.$this->:if.']>';
+		foreach ($children as $child) {
+			$html .= \XHP\:xhp::renderChild($child);
+		}
+		$html .= '<![endif]-->';
+		return $html;
+	}
 }

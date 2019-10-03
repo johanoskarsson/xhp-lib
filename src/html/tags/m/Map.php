@@ -7,9 +7,10 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :map extends :xhp:html-element {
-  attribute Stringish name;
+class :map extends :html-element {
+  attribute \Stringish name;
   category %flow, %phrase;
   children (pcdata | %flow)*;
   protected string $tagName = 'map';

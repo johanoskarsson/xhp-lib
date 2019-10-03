@@ -8,6 +8,8 @@
  *
  */
 
+namespace XHP;
+
 /**
  * INCREDIBLY AWESOME: Specify an element as awaitable on render.
  *
@@ -16,6 +18,6 @@
  * be batched together when the element is rendered.
  */
 interface XHPAwaitable {
-  require extends :x:element;
-  protected function asyncRender(): Awaitable<XHPRoot>;
+	require extends \x\:element;
+	protected function asyncRender(): Awaitable<XHPRoot>;
 }

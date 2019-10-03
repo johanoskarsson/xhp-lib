@@ -7,18 +7,19 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :img extends :xhp:html-singleton {
-  attribute
-    Stringish alt,
-    enum {'anonymous', 'use-credentials'} crossorigin,
-    int height,
-    bool ismap,
-    Stringish sizes,
-    Stringish src,
-    Stringish srcset,
-    Stringish usemap,
-    int width;
-  category %flow, %phrase;
-  protected string $tagName = 'img';
+class :img extends :html-singleton {
+	attribute
+		\Stringish alt,
+		enum {'anonymous', 'use-credentials'} crossorigin,
+		int height,
+		bool ismap,
+		\Stringish sizes,
+		\Stringish src,
+		\Stringish srcset,
+		\Stringish usemap,
+		int width;
+	category %flow, %phrase;
+	protected string $tagName = 'img';
 }

@@ -7,13 +7,14 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :source extends :xhp:html-singleton {
-  attribute
-    Stringish media,
-    Stringish sizes,
-    Stringish src,
-    Stringish srcset,
-    Stringish type;
-  protected string $tagName = 'source';
+class :source extends :html-singleton {
+	attribute
+		\Stringish media,
+		\Stringish sizes,
+		\Stringish src,
+		\Stringish srcset,
+		\Stringish type;
+	protected string $tagName = 'source';
 }

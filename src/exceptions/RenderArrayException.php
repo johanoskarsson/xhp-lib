@@ -8,5 +8,7 @@
  *
  */
 
+namespace XHP;
+
 class XHPRenderArrayException extends XHPException {
 }

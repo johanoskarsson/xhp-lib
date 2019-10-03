@@ -7,12 +7,13 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :embed extends :xhp:html-element {
+class :embed extends :html-element {
   attribute
     int height,
-    Stringish src,
-    Stringish type,
+    \Stringish src,
+    \Stringish type,
     int width,
     /**
      * The following attributes are Flash specific.
@@ -20,7 +21,7 @@ class :embed extends :xhp:html-element {
      */
     bool allowfullscreen,
     enum {'always', 'never'} allowscriptaccess,
-    Stringish wmode;
+    \Stringish wmode;
 
   category %flow, %phrase, %embedded, %interactive;
   children (pcdata | %phrase)*;

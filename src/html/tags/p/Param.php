@@ -7,10 +7,11 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :param extends :xhp:pcdata-element {
-  attribute
-    Stringish name,
-    Stringish value;
-  protected string $tagName = 'param';
+class :param extends :pcdata-element {
+	attribute
+		\Stringish name,
+		\Stringish value;
+	protected string $tagName = 'param';
 }

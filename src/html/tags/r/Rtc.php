@@ -7,8 +7,9 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :rtc extends :xhp:html-element {
-  children (pcdata | %phrase)+;
-  protected string $tagName = 'rtc';
+class :rtc extends :html-element {
+	children (pcdata | %phrase)+;
+	protected string $tagName = 'rtc';
 }

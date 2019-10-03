@@ -7,17 +7,18 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+namespace XHP\HTML;
 
-class :link extends :xhp:html-singleton {
+class :link extends :html-singleton {
   attribute
-    Stringish as,
+    \Stringish as,
     enum {'anonymous', 'use-credentials'} crossorigin,
-    Stringish href,
-    Stringish hreflang,
-    Stringish media,
-    Stringish rel @required,
-    Stringish sizes,
-    Stringish type;
+    \Stringish href,
+    \Stringish hreflang,
+    \Stringish media,
+    \Stringish rel @required,
+    \Stringish sizes,
+    \Stringish type;
   category %metadata;
   protected string $tagName = 'link';
 }
